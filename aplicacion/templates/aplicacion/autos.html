@@ -1,0 +1,52 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Autos
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Autos Disponibles</div>
+    </div>
+{% endblock cabecera %}
+
+
+
+{% block contenido %}
+<a href="{% url 'buscar_autos' %}" target="_blank">
+    <button type="button">Filtrar Autos por marca</button>
+</a>
+<a href="{% url 'autos_form' %}" target="_blank">
+    <button type="button">Dar de alta nuevo Auto</button>
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Km</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for auto in autos %}
+        <tr>
+            <td>{{auto.id}}</td>
+            <td>{{auto.marca}}</td>
+            <td>{{auto.modelo}}</td>
+            <td>{{auto.anio}}</td>
+            <td>{{auto.kilometraje}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>  
+{% endblock contenido %}
+
+{% block servicios %}
+
+{% endblock servicios %}
+
+

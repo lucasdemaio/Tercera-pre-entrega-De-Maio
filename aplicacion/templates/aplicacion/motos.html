@@ -1,0 +1,50 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Motos
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Motos Disponibles</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido %}
+<a href="{% url 'buscar_motos' %}" target="_blank">
+    <button type="button">Filtrar Motos por marca</button>
+</a>
+<a href="{% url 'motos_form' %}" target="_blank">
+    <button type="button">Dar de alta nueva Moto</button>
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Km</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for moto in motos %}
+        <tr>
+            <td>{{moto.id}}</td>
+            <td>{{moto.marca}}</td>
+            <td>{{moto.modelo}}</td>
+            <td>{{moto.anio}}</td>
+            <td>{{moto.kilometraje}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>  
+{% endblock contenido %}
+
+{% block servicios %}
+
+{% endblock servicios %}
+
+

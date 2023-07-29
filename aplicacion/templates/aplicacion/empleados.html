@@ -1,0 +1,47 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Empleados
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Listado de Empleados</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido %}
+<a href="{% url 'empleados_form' %}" target="_blank">
+    <button type="button">Dar de alta nuevo Empleado</button>
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Telefono</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for empleado in empleados %}
+        <tr>
+            <td>{{empleado.id}}</td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.apellido}}</td>
+            <td>{{empleado.email}}</td>
+            <td>{{empleado.telefono}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>  
+{% endblock contenido %}
+
+{% block servicios %}
+
+{% endblock servicios %}
+
+
